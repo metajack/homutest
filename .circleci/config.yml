@@ -6,9 +6,16 @@ jobs:
       - image: circleci/rust:stretch
     steps:
       - checkout
-      - run: echo 'pass'
+      - run: echo 'pass build'
+  test:
+    docker:
+      - image: circleci/rust:stretch
+    steps:
+      - checkout
+      - run: echo 'pass test'
         
 workflows:
   commit-workflow:
     jobs:
       - build
+      - test
